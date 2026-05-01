@@ -146,7 +146,7 @@ function calculate() {
   for (var i = 0; i < data.grid.length; i++) {
     var item = data.grid[i];
     html +=
-      '<div class="equip-card">' +
+      '<div class="equip-card" data-set="' + item.set + '">' +
         '<div class="slot-label">' + SLOTS[i] + '</div>' +
         '<div class="equip-name">' + item.name + '</div>' +
         '<span class="set-tag tag-' + item.set + '">' + item.set + ' 세트</span>' +
@@ -184,7 +184,6 @@ function calculate() {
 }
 
 /* ── 이벤트 등록 ──────────────────────────────────────────── */
-document.getElementById('calcBtn').addEventListener('click', calculate);
 document.getElementById('dmgType').addEventListener('change', calculate);
 document.getElementById('elementType').addEventListener('change', calculate);
 
