@@ -4,21 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>낙원 장비 시너지 추천기</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
-<div class="header">
-  <h1>⚔ 낙원 장비 시너지 추천기</h1>
-  <div class="header-divider"><span>Lost Ark</span></div>
-</div>
+<div class="wrap">
 
-<div class="layout">
+  <!-- 헤더 -->
+  <div class="header">
+    <h1>낙원 장비 시너지 추천기</h1>
+    <div class="header-sub">Lost Ark · 낙원 레이드</div>
+  </div>
 
-  <!-- 입력 패널 -->
-  <div class="input-panel card">
-    <div class="panel-title">캐릭터 설정</div>
-
+  <!-- 입력 바 -->
+  <div class="input-bar card">
     <div class="form-group">
       <label for="dmgType">딜러 타입</label>
       <select id="dmgType">
@@ -27,7 +26,7 @@
         <option value="hybrid">하이브리드</option>
       </select>
     </div>
-
+    <div class="bar-divider"></div>
     <div class="form-group">
       <label for="elementType">속성</label>
       <select id="elementType">
@@ -36,23 +35,29 @@
         <option value="dark">암속성</option>
       </select>
     </div>
-
-    <div class="input-hint">선택 시 바로 추천 세팅이 표시됩니다</div>
+    <div class="bar-hint">선택하면 바로 세팅이 표시됩니다</div>
   </div>
 
-  <!-- 결과 패널 -->
+  <!-- 결과 -->
   <div id="resultPanel" class="result-panel card">
+
     <div class="result-header">
-      <h2>추천 세팅</h2>
-      <span class="result-badge" id="resultLabel"></span>
+      <div class="result-title">
+        <span class="result-label-text">추천 세팅</span>
+        <span class="result-badge" id="resultLabel"></span>
+      </div>
     </div>
+
     <div class="equip-grid" id="equipGrid"></div>
+
     <div class="result-desc" id="resultDesc"></div>
+
     <div class="legend" id="setLegend"></div>
+
   </div>
 
 </div>
 
-<script src="script.js?v=3"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
