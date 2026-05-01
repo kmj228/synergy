@@ -144,15 +144,18 @@ select:focus {
 
 /* ── 결과 패널 ──────────────────────────────────────────────  */
 .result-panel {
-  animation: fadeSlideIn 0.35s ease;
+  display: none;       /* 기본: 숨김 */
+  opacity: 0;
 }
 
-.result-panel.hidden {
-  display: none;
+/* JS가 .show 클래스를 추가할 때만 표시 + 애니메이션 */
+.result-panel.show {
+  display: block;
+  animation: fadeSlideIn 0.32s ease forwards; /* forwards: 최종 상태 유지 */
 }
 
 @keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 

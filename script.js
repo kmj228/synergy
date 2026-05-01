@@ -177,11 +177,10 @@ function calculate() {
 
   // 결과 패널 표시 (애니메이션 재실행)
   var panel = document.getElementById('resultPanel');
-  panel.classList.remove('hidden');
-  // 애니메이션 재트리거
-  panel.style.animation = 'none';
-  panel.offsetHeight; // reflow
-  panel.style.animation = '';
+  // .show 클래스를 제거 → reflow → 재추가 순서로 애니메이션 확실히 재트리거
+  panel.classList.remove('show');
+  void panel.offsetWidth; // offsetWidth가 reflow 트리거로 더 안정적
+  panel.classList.add('show');
 }
 
 /* ── 이벤트 등록 ──────────────────────────────────────────── */
