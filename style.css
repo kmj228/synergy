@@ -1,0 +1,21 @@
+body { font-family: 'Malgun Gothic', sans-serif; background-color: #1e1e24; color: #fff; text-align: center; padding: 20px; }
+
+        .container { max-width: 500px; margin: 0 auto; background-color: #2b2b36; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+
+        h1 { font-size: 24px; color: #f1c40f; margin-bottom: 20px; }
+
+        .form-group { margin-bottom: 15px; text-align: left; }
+
+        label { font-weight: bold; display: block; margin-bottom: 5px; color: #ddd; }
+
+        select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #555; background-color: #1e1e24; color: #fff; font-size: 16px; }
+
+        button { width: 100%; padding: 12px; background-color: #e67e22; color: #fff; border: none; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        button:hover { background-color: #d35400; }
+        .result-box { margin-top: 30px; display: none; }
+        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+        .grid-item { background-color: #3a3a48; border: 1px solid #555; padding: 15px 5px; border-radius: 8px; font-size: 13px; font-weight: bold; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 90px; word-break: keep-all; line-height: 1.4; }
+        .slot-name { font-size: 12px; color: #aaa; margin-bottom: 5px; }
+        .highlight { color: #f1c40f; }
+        .warn { color: #e74c3c; font-size: 12px; margin-top: 5px; font-weight: 900; }
+        .desc { font-size: 14px; color: #ccc; margin-top: 15px; text-align: left; line-height: 1.5; background: #222; padding: 10px; border-radius: 5px;}
