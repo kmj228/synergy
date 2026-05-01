@@ -1,191 +1,170 @@
-/* ── 장비 데이터 ────────────────────────────────────────────
-   window.data 의존성 제거 — 데이터를 여기에 직접 정의합니다.
-   이전에 window.data가 undefined여서 모든 기기에서 오류가 발생하던
-   문제를 이 방식으로 완전히 해결합니다.
-───────────────────────────────────────────────────────────── */
 var DATA = {
   physical_none: {
     label: '물리 · 무속성',
     grid: [
-      { name: '정화의 향로', set: '파괴' },
-      { name: '파괴의 호각', set: '파괴' },
-      { name: '용맹의 가면', set: '파괴' },
-      { name: '파괴의 술잔', set: '파괴' },
-      { name: '균형의 종',   set: '수호' },
-      { name: '용맹의 거울', set: '수호' },
+      '💧 습기(택1)<br>or 고품질',
+      '💧 습기(택1)<br>or 고품질',
+      '❄️ 한기(택1)<br>or 고품질',
+      '❄️ 한기(택1)<br>or 고품질',
+      '품질용<br><span class="warn">❌ 작열 금지</span>',
+      '품질용(자유)<br><span class="warn">❌ 작열 금지</span>'
     ],
-    desc: '<strong>파괴 세트 4개 + 수호 세트 2개</strong> 조합입니다.<br>물리 공격력과 치명타 확률을 극대화하며, 수호 세트의 방어 관통 효과로 안정적인 딜을 기대할 수 있습니다.',
+    desc: '<b>[무속성 물리 딜러]</b><br>✔️ 필수: 습기 + 한기<br>✔️ 빈칸: 무조건 품질 높은 장비 장착<br>💡 습기+한기 구비 후 공허·그늘 편린이 많이 뜬다면, 나머지 슬롯을 공허·그늘로 채우는 것도 좋습니다.'
   },
   physical_elemental: {
     label: '물리 · 속성',
     grid: [
-      { name: '불꽃의 향로', set: '속성' },
-      { name: '파괴의 호각', set: '파괴' },
-      { name: '용맹의 가면', set: '파괴' },
-      { name: '파괴의 술잔', set: '파괴' },
-      { name: '폭풍의 종',   set: '속성' },
-      { name: '용맹의 거울', set: '파괴' },
+      '💧 습기(택1)<br>or 고품질',
+      '💧 습기 / ✨ 광휘(택1)<br>or 고품질',
+      '❄️ 한기(택1)<br>or 고품질',
+      '❄️ 한기(택1)<br>or 고품질',
+      '✨ 광휘(택1)<br>or 고품질',
+      '품질용<br><span class="warn">❌ 작열·그늘 금지</span>'
     ],
-    desc: '<strong>파괴 세트 4개 + 속성 세트 2개</strong> 조합입니다.<br>물리 공격력을 기반으로 속성 피해 증폭이 더해져, 속성 취약 보스에게 높은 딜을 기대할 수 있습니다.',
+    desc: '<b>[속성 물리 딜러]</b><br>✔️ 필수: 습기 + 한기 + ✨ 광휘<br>✔️ 광휘는 호각이나 종 중 품질 좋은 곳에 챙기세요.<br>🚨 주의: <b>🌑 그늘(어둠)</b>과 <b>🔥 작열(불)</b>은 절대 사용 금지!'
   },
   physical_dark: {
     label: '물리 · 암속성',
     grid: [
-      { name: '암흑의 향로', set: '암흑' },
-      { name: '파괴의 호각', set: '파괴' },
-      { name: '황혼의 가면', set: '암흑' },
-      { name: '파괴의 술잔', set: '파괴' },
-      { name: '전쟁의 종',   set: '파괴' },
-      { name: '황혼의 거울', set: '파괴' },
+      '💧 습기 / 🌑 그늘(택1)',
+      '💧 습기 / 🌑 그늘(택1)',
+      '❄️ 한기 / 🌌 공허(택1)',
+      '❄️ 한기 / 🌑 그늘<br>/ 🌌 공허(택1)',
+      '고품질 / 🌌 공허(택1)<br><span class="warn">❌ 작열·광휘 금지</span>',
+      '🌑 그늘 / 🌌 공허(택1)'
     ],
-    desc: '<strong>파괴 세트 4개 + 암흑 세트 2개</strong> 조합입니다.<br>물리 공격력과 암속성 피해가 시너지를 이루며, 암속성 적에게 특화된 높은 폭딜이 가능합니다.',
+    desc: '<b>[암속성 물리 딜러]</b><br>✔️ 필수: 습기 + 한기 + 🌑 그늘<br>✔️ 습기·한기 먼저 채운 후 그늘·공허는 뜨는 것 사용<br>✔️ 가면/술잔/종/거울 중 한 곳에서 <b>🌌 공허</b> 채용 가능<br>🚨 주의: <b>✨ 광휘(빛)</b>와 <b>🔥 작열(불)</b>은 절대 사용 금지!'
   },
   magical_none: {
     label: '마법 · 무속성',
     grid: [
-      { name: '정화의 향로', set: '지배' },
-      { name: '지배의 호각', set: '지배' },
-      { name: '지혜의 가면', set: '지배' },
-      { name: '마력의 술잔', set: '지배' },
-      { name: '마법의 종',   set: '수호' },
-      { name: '지식의 거울', set: '수호' },
+      '💧 습기 / ⚡ 감전(택1)',
+      '💧 습기(택1)',
+      '⚡ 감전(택1)',
+      '품질용(자유)',
+      '🔥 작열(택1)',
+      '🔥 작열(택1)'
     ],
-    desc: '<strong>지배 세트 4개 + 수호 세트 2개</strong> 조합입니다.<br>마법 공격력과 시전 속도를 극대화하며, 수호 세트의 마법 관통 보너스로 일관된 딜을 유지합니다.',
+    desc: '<b>[무속성 마법 딜러]</b><br>✔️ 필수: 습기 + 감전 + 작열<br>💡 향로 감전보다 가면 감전이 더 유리합니다.'
   },
   magical_elemental: {
     label: '마법 · 속성',
     grid: [
-      { name: '불꽃의 향로', set: '속성' },
-      { name: '지배의 호각', set: '지배' },
-      { name: '지혜의 가면', set: '지배' },
-      { name: '마력의 술잔', set: '지배' },
-      { name: '폭풍의 종',   set: '속성' },
-      { name: '지식의 거울', set: '지배' },
+      '💧 습기 / ⚡ 감전(택1)',
+      '💧 습기 / ✨ 광휘(택1)',
+      '⚡ 감전(택1)',
+      '품질용<br><span class="warn">❌ 그늘 금지</span>',
+      '🔥 작열 / ✨ 광휘(택1)',
+      '고품질 / 🔥 작열(택1)<br><span class="warn">❌ 그늘 금지</span>'
     ],
-    desc: '<strong>지배 세트 4개 + 속성 세트 2개</strong> 조합입니다.<br>마법 공격력과 속성 피해 증폭이 시너지를 이루어, 속성 공격 스킬의 위력이 크게 강화됩니다.',
+    desc: '<b>[속성 마법 딜러]</b><br>✔️ 필수: 습기(단일) + 감전 + 작열 + ✨ 광휘<br>✔️ 화속성 딜러도 습기 걱정 말고 맞추세요.<br>🚨 주의: 반대 속성인 <b>🌑 그늘(어둠)</b>은 절대 사용 금지!'
   },
   magical_dark: {
     label: '마법 · 암속성',
     grid: [
-      { name: '암흑의 향로', set: '암흑' },
-      { name: '지배의 호각', set: '지배' },
-      { name: '황혼의 가면', set: '암흑' },
-      { name: '마력의 술잔', set: '지배' },
-      { name: '마법의 종',   set: '지배' },
-      { name: '지식의 거울', set: '지배' },
+      '💧 습기 / 🌑 그늘<br>/ ⚡ 감전(택1)',
+      '💧 습기 / 🌑 그늘(택1)',
+      '⚡ 감전 / 🌌 공허(택1)',
+      '🌑 그늘 / 🌌 공허(택1)',
+      '🔥 작열(고정)<br>/ 🌌 공허(택1)',
+      '🔥 작열 / 🌑 그늘<br>/ 🌌 공허(택1)'
     ],
-    desc: '<strong>지배 세트 4개 + 암흑 세트 2개</strong> 조합입니다.<br>마법 공격력에 암흑 피해 증폭이 더해져, 암속성 보스전에서 강력한 위력을 발휘합니다.',
+    desc: '<b>[암속성 마법 딜러]</b><br>✔️ 필수: 습기(단일) + 감전 + 작열 + 🌑 그늘<br>✔️ 종에 작열을 고정하면 나머지 자리에 그늘 넣기 편합니다.<br>✔️ 가면/술잔/종/거울 중 한 곳에서 <b>🌌 공허</b> 채용 가능<br>🚨 주의: 빛 속성인 <b>✨ 광휘</b>는 절대 사용 금지!'
   },
   hybrid_none: {
     label: '하이브리드 · 무속성',
     grid: [
-      { name: '정화의 향로', set: '균형' },
-      { name: '균형의 호각', set: '균형' },
-      { name: '균형의 가면', set: '균형' },
-      { name: '결의의 술잔', set: '균형' },
-      { name: '균형의 종',   set: '수호' },
-      { name: '용맹의 거울', set: '수호' },
+      '💧 습기(택1)<br>or 고품질',
+      '💧 습기(택1)<br>or 고품질',
+      '⚡ 감전(고정)',
+      '❄️ 한기(고정)',
+      '품질용<br><span class="warn">❌ 작열 절대금지</span>',
+      '품질용(자유)'
     ],
-    desc: '<strong>균형 세트 4개 + 수호 세트 2개</strong> 조합입니다.<br>물리/마법 공격력을 동시에 강화하며, 다양한 스킬 구성에서 안정적인 딜을 유지할 수 있습니다.',
+    desc: '<b>[무속성 하이브리드]</b><br>✔️ 필수: 가면 = ⚡ 감전 고정 / 술잔 = ❄️ 한기 고정<br>🚨 주의: 하이브리드는 <b>🔥 작열(불) 절대 금지!</b> (한기가 녹아버림)<br>💡 작열을 안 쓰므로 습기는 아무거나 껴도 됩니다.'
   },
   hybrid_elemental: {
     label: '하이브리드 · 속성',
     grid: [
-      { name: '불꽃의 향로', set: '속성' },
-      { name: '균형의 호각', set: '균형' },
-      { name: '균형의 가면', set: '균형' },
-      { name: '결의의 술잔', set: '균형' },
-      { name: '폭풍의 종',   set: '속성' },
-      { name: '용맹의 거울', set: '균형' },
+      '💧 습기(택1)<br>or 고품질',
+      '💧 습기 / ✨ 광휘(택1)',
+      '⚡ 감전(고정)',
+      '❄️ 한기(고정)',
+      '✨ 광휘(택1)<br>or 품질용<br><span class="warn">❌ 그늘·작열 금지</span>',
+      '품질용<br><span class="warn">❌ 그늘·작열 금지</span>'
     ],
-    desc: '<strong>균형 세트 4개 + 속성 세트 2개</strong> 조합입니다.<br>물리·마법 복합 딜에 속성 피해 증폭이 더해져, 속성 스킬 위주 하이브리드 빌드에 최적화됩니다.',
+    desc: '<b>[속성 하이브리드]</b><br>✔️ 필수: 가면 = ⚡ 감전 고정 / 술잔 = ❄️ 한기 고정 / + ✨ 광휘 추가<br>🚨 주의: <b>🔥 작열(불)</b>과 <b>🌑 그늘(어둠)</b> 절대 금지! 광휘는 호각이나 종에서 챙기세요.'
   },
   hybrid_dark: {
     label: '하이브리드 · 암속성',
     grid: [
-      { name: '암흑의 향로', set: '암흑' },
-      { name: '균형의 호각', set: '균형' },
-      { name: '황혼의 가면', set: '암흑' },
-      { name: '결의의 술잔', set: '균형' },
-      { name: '균형의 종',   set: '균형' },
-      { name: '황혼의 거울', set: '균형' },
+      '💧 습기 / 🌑 그늘(택1)',
+      '💧 습기 / 🌑 그늘(택1)',
+      '⚡ 감전(고정)',
+      '❄️ 한기(고정)',
+      '고품질 / 🌌 공허(택1)<br><span class="warn">❌ 작열·광휘 금지</span>',
+      '🌑 그늘 / 🌌 공허(택1)'
     ],
-    desc: '<strong>균형 세트 4개 + 암흑 세트 2개</strong> 조합입니다.<br>물리·마법 양면 딜에 암흑 피해 증폭이 결합되어, 암속성 보스에서 극딜이 가능합니다.',
-  },
+    desc: '<b>[암속성 하이브리드]</b><br>✔️ 필수: 가면 = ⚡ 감전 고정 / 술잔 = ❄️ 한기 고정 / + 🌑 그늘 추가<br>✔️ 가면/술잔/종/거울 중 한 곳에서 <b>🌌 공허</b> 채용 가능<br>🚨 주의: <b>🔥 작열(불)</b>과 <b>✨ 광휘(빛)</b>는 절대 금지!'
+  }
 };
 
 var SLOTS = ['향로', '호각', '가면', '술잔', '종', '거울'];
 
-var SET_META = {
-  파괴: { color: '#e87060', desc: '파괴 세트 — 물리 공격력 · 치명타' },
-  지배: { color: '#c08ee8', desc: '지배 세트 — 마법 공격력 · 시전속도' },
-  균형: { color: '#4dcb7a', desc: '균형 세트 — 물리/마법 동시 강화' },
-  수호: { color: '#6ab8e8', desc: '수호 세트 — 방어/마법 관통 보너스' },
-  속성: { color: '#f5d44a', desc: '속성 세트 — 속성 피해 증폭' },
-  암흑: { color: '#de80f5', desc: '암흑 세트 — 암속성 피해 증폭' },
-};
+var EMOJI_LEGEND = [
+  { emoji: '💧', name: '습기',  desc: '물리·마법 공통' },
+  { emoji: '❄️', name: '한기',  desc: '냉기 (물리 계열)' },
+  { emoji: '⚡', name: '감전',  desc: '전기 (마법 계열)' },
+  { emoji: '🔥', name: '작열',  desc: '화염 (마법 계열)' },
+  { emoji: '🌑', name: '그늘',  desc: '암속성 전용' },
+  { emoji: '✨', name: '광휘',  desc: '빛속성 전용' },
+  { emoji: '🌌', name: '공허',  desc: '암속성 보조' },
+];
 
-/* ── 렌더링 함수 ──────────────────────────────────────────── */
+/* ── 렌더링 ─────────────────────────────────────────────── */
 function calculate() {
   var type = document.getElementById('dmgType').value;
   var elem = document.getElementById('elementType').value;
   var key  = type + '_' + elem;
   var data = DATA[key];
 
-  if (!data) {
-    console.warn('[시너지] 데이터 없음: ' + key);
-    return;
-  }
+  if (!data) { console.error('데이터 없음: ' + key); return; }
 
-  // 라벨 업데이트
   document.getElementById('resultLabel').textContent = data.label;
 
-  // 장비 카드 렌더링
-  var grid = document.getElementById('equipGrid');
   var html = '';
   for (var i = 0; i < data.grid.length; i++) {
-    var item = data.grid[i];
     html +=
-      '<div class="equip-card" data-set="' + item.set + '">' +
+      '<div class="equip-card">' +
         '<div class="slot-label">' + SLOTS[i] + '</div>' +
-        '<div class="equip-name">' + item.name + '</div>' +
-        '<span class="set-tag tag-' + item.set + '">' + item.set + ' 세트</span>' +
+        '<div class="equip-content">' + data.grid[i] + '</div>' +
       '</div>';
   }
-  grid.innerHTML = html;
+  document.getElementById('equipGrid').innerHTML = html;
 
-  // 설명 업데이트
   document.getElementById('resultDesc').innerHTML = data.desc;
 
-  // 범례: 사용된 세트만 표시 (순서 유지)
-  var usedSets = [];
-  for (var j = 0; j < data.grid.length; j++) {
-    var s = data.grid[j].set;
-    if (usedSets.indexOf(s) === -1) usedSets.push(s);
-  }
+  /* 이모지 범례 */
   var legend = '';
-  for (var k = 0; k < usedSets.length; k++) {
-    var setKey = usedSets[k];
-    var meta   = SET_META[setKey];
+  for (var k = 0; k < EMOJI_LEGEND.length; k++) {
+    var l = EMOJI_LEGEND[k];
     legend +=
       '<div class="legend-item">' +
-        '<span class="legend-dot" style="background:' + meta.color + '"></span>' +
-        '<span>' + meta.desc + '</span>' +
+        '<span class="legend-emoji">' + l.emoji + '</span>' +
+        '<span class="legend-name">' + l.name + '</span>' +
+        '<span class="legend-desc">' + l.desc + '</span>' +
       '</div>';
   }
   document.getElementById('setLegend').innerHTML = legend;
 
-  // 결과 패널 표시 (애니메이션 재실행)
   var panel = document.getElementById('resultPanel');
-  // .show 클래스를 제거 → reflow → 재추가 순서로 애니메이션 확실히 재트리거
   panel.classList.remove('show');
-  void panel.offsetWidth; // offsetWidth가 reflow 트리거로 더 안정적
+  void panel.offsetWidth;
   panel.classList.add('show');
 }
 
-/* ── 이벤트 등록 ──────────────────────────────────────────── */
+/* ── 이벤트 ─────────────────────────────────────────────── */
 document.getElementById('dmgType').addEventListener('change', calculate);
 document.getElementById('elementType').addEventListener('change', calculate);
 
-/* ── 초기 실행 ────────────────────────────────────────────── */
 calculate();

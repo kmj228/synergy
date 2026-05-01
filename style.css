@@ -15,7 +15,7 @@ body {
 
 /* ── 전체 래퍼 ────────────────────────────────────────────── */
 .wrap {
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -76,13 +76,11 @@ body {
 .input-bar {
   display: flex;
   align-items: center;
-  gap: 0;
   padding: 22px 32px;
+  gap: 0;
 }
 
-.input-bar .form-group {
-  flex: 1;
-}
+.input-bar .form-group { flex: 1; }
 
 .bar-divider {
   width: 1px;
@@ -92,31 +90,9 @@ body {
   flex-shrink: 0;
 }
 
-.bar-hint {
-  font-size: 0.72rem;
-  color: #5a5035;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  padding-left: 28px;
-  border-left: 1px solid rgba(200, 168, 60, 0.12);
-  flex-shrink: 0;
-}
-
-@media (max-width: 620px) {
-  .input-bar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-    padding: 22px 24px;
-  }
+@media (max-width: 560px) {
+  .input-bar { flex-direction: column; align-items: stretch; gap: 16px; padding: 22px 24px; }
   .bar-divider { display: none; }
-  .bar-hint {
-    border-left: none;
-    border-top: 1px solid rgba(200, 168, 60, 0.12);
-    padding-left: 0;
-    padding-top: 12px;
-    text-align: center;
-  }
 }
 
 /* ── 폼 요소 ──────────────────────────────────────────────── */
@@ -185,7 +161,7 @@ select:focus {
 }
 
 .result-label-text {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -206,15 +182,11 @@ select:focus {
 /* ── 장비 그리드 ──────────────────────────────────────────── */
 .equip-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
-@media (max-width: 720px) {
-  .equip-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (max-width: 440px) {
+@media (max-width: 480px) {
   .equip-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -222,66 +194,51 @@ select:focus {
   background: #0a0e1a;
   border: 1px solid rgba(200, 168, 60, 0.15);
   border-radius: 4px;
-  padding: 16px 10px 14px;
+  padding: 14px 12px 13px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
 }
 
-/* 세트별 상단 컬러 바 */
-.equip-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-}
-.equip-card[data-set="파괴"]::before { background: linear-gradient(90deg, transparent, #c04838 40%, #e05040 50%, #c04838 60%, transparent); }
-.equip-card[data-set="지배"]::before { background: linear-gradient(90deg, transparent, #8844c0 40%, #a060d8 50%, #8844c0 60%, transparent); }
-.equip-card[data-set="균형"]::before { background: linear-gradient(90deg, transparent, #2a9850 40%, #38b860 50%, #2a9850 60%, transparent); }
-.equip-card[data-set="수호"]::before { background: linear-gradient(90deg, transparent, #2a60b8 40%, #3878d0 50%, #2a60b8 60%, transparent); }
-.equip-card[data-set="속성"]::before { background: linear-gradient(90deg, transparent, #b89020 40%, #d4aa30 50%, #b89020 60%, transparent); }
-.equip-card[data-set="암흑"]::before { background: linear-gradient(90deg, transparent, #a030c0 40%, #c050e0 50%, #a030c0 60%, transparent); }
-
 .equip-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(200, 168, 60, 0.38);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+  border-color: rgba(200, 168, 60, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .slot-label {
   font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #4a4028;
-  margin-bottom: 9px;
+  color: #5a5035;
+  background: rgba(200, 168, 60, 0.07);
+  border: 1px solid rgba(200, 168, 60, 0.12);
+  border-radius: 2px;
+  padding: 2px 8px;
+  width: 100%;
 }
 
-.equip-name {
-  font-size: 0.82rem;
-  font-weight: 700;
+.equip-content {
+  font-size: 0.83rem;
+  font-weight: 600;
   color: #ece8e0;
-  line-height: 1.4;
-  margin-bottom: 10px;
+  line-height: 1.55;
   word-break: keep-all;
 }
 
-.set-tag {
+/* 경고 문구 */
+.warn {
   display: inline-block;
-  font-size: 0.58rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 2px;
-  letter-spacing: 0.05em;
+  margin-top: 5px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #e05040;
+  letter-spacing: 0.01em;
 }
-
-.tag-파괴 { background: rgba(192, 72, 56, 0.18);  color: #d86858; border: 1px solid rgba(192, 72, 56, 0.32); }
-.tag-지배 { background: rgba(136, 68, 192, 0.18); color: #a878d8; border: 1px solid rgba(136, 68, 192, 0.32); }
-.tag-균형 { background: rgba(42, 152, 80, 0.18);  color: #48b868; border: 1px solid rgba(42, 152, 80, 0.32); }
-.tag-수호 { background: rgba(42, 96, 184, 0.18);  color: #5888c8; border: 1px solid rgba(42, 96, 184, 0.32); }
-.tag-속성 { background: rgba(184, 144, 32, 0.18); color: #c8a030; border: 1px solid rgba(184, 144, 32, 0.32); }
-.tag-암흑 { background: rgba(160, 48, 192, 0.18); color: #c058d8; border: 1px solid rgba(160, 48, 192, 0.32); }
 
 /* ── 설명 ─────────────────────────────────────────────────── */
 .result-desc {
@@ -291,21 +248,21 @@ select:focus {
   border: 1px solid rgba(200, 168, 60, 0.12);
   border-left: 2px solid rgba(200, 168, 60, 0.55);
   border-radius: 0 4px 4px 0;
-  font-size: 0.87rem;
+  font-size: 0.88rem;
   color: #b8b2a8;
-  line-height: 1.85;
+  line-height: 1.9;
 }
 
-.result-desc strong {
-  color: #c8a840;
+.result-desc b {
+  color: #ecc84a;
   font-weight: 700;
 }
 
-/* ── 범례 ─────────────────────────────────────────────────── */
+/* ── 이모지 범례 ──────────────────────────────────────────── */
 .legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 22px;
+  gap: 8px 0;
   margin-top: 18px;
   padding-top: 16px;
   border-top: 1px solid rgba(200, 168, 60, 0.08);
@@ -314,14 +271,25 @@ select:focus {
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 0.71rem;
-  color: #5a5030;
+  gap: 6px;
+  width: 50%;
+  padding: 3px 0;
+  font-size: 0.75rem;
 }
 
-.legend-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 1px;
-  flex-shrink: 0;
+@media (max-width: 500px) {
+  .legend-item { width: 100%; }
+}
+
+.legend-emoji { font-size: 1rem; flex-shrink: 0; }
+
+.legend-name {
+  font-weight: 700;
+  color: #c8a840;
+  min-width: 28px;
+}
+
+.legend-desc {
+  color: #5a5235;
+  font-size: 0.7rem;
 }
