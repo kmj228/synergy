@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>낙원 장비 시너지 추천기</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>낙원 장비 시너지 추천기</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>⚔️ 낙원 장비 시너지 추천기</h1>
 
-    <div class="main-layout">
-        <!-- 입력 영역 -->
-        <div class="input-panel card">
-            <div class="form-group">
-                <label>딜러 타입</label>
-                <select id="dmgType">
-                    <option value="physical">물리 딜러</option>
-                    <option value="magical">마법 딜러</option>
-                    <option value="hybrid">하이브리드</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>속성</label>
-                <select id="elementType">
-                    <option value="none">무속성</option>
-                    <option value="elemental">속성</option>
-                    <option value="dark">암속성</option>
-                </select>
-            </div>
-
-            <button onclick="calculate()">✨ 추천 세팅 보기</button>
-        </div>
-
-        <!-- 결과 영역 -->
-        <div id="resultBox" class="result-box card">
-            <h2 class="highlight">추천 세팅</h2>
-            <div class="grid-container" id="equipGrid"></div>
-            <div id="resultDesc" class="desc"></div>
-        </div>
-    </div>
+<div class="header">
+  <h1>⚔️ 낙원 장비 시너지 추천기</h1>
+  <p>딜러 타입과 속성을 선택하면 최적 장비 세팅을 추천해드립니다.</p>
 </div>
+
+<div class="layout">
+
+  <!-- 입력 패널 -->
+  <div class="input-panel card">
+    <div class="panel-title">캐릭터 설정</div>
+
+    <div class="form-group">
+      <label for="dmgType">딜러 타입</label>
+      <select id="dmgType">
+        <option value="physical">⚔️ 물리 딜러</option>
+        <option value="magical">🔮 마법 딜러</option>
+        <option value="hybrid">⚡ 하이브리드</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="elementType">속성</label>
+      <select id="elementType">
+        <option value="none">🌀 무속성</option>
+        <option value="elemental">🌟 속성</option>
+        <option value="dark">🌑 암속성</option>
+      </select>
+    </div>
+
+    <button class="btn" id="calcBtn">✨ 추천 세팅 보기</button>
+  </div>
+
+  <!-- 결과 패널 -->
+  <div id="resultPanel" class="result-panel card hidden">
+    <div class="result-header">
+      <h2>추천 세팅</h2>
+      <span class="result-badge" id="resultLabel"></span>
+    </div>
+    <div class="equip-grid" id="equipGrid"></div>
+    <div class="result-desc" id="resultDesc"></div>
+    <div class="legend" id="setLegend"></div>
+  </div>
+
+</div>
+
+<!--
+  script.js는 </body> 바로 위에 배치합니다.
+  defer 없이도 DOM이 이미 파싱된 뒤 실행되므로 안전합니다.
+-->
+<script src="script.js"></script>
 </body>
 </html>
