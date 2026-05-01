@@ -1,6 +1,15 @@
 /* ── 리셋 ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── 루트 폰트 크기: 화면 너비에 따라 유동적으로 스케일 ────
+   320px  → ~15px
+   768px  → ~16.5px
+   1200px → 18px (최대)
+──────────────────────────────────────────────────────────── */
+html {
+  font-size: clamp(15px, 0.6vw + 13.1px, 18px);
+}
+
 /* ── 기본 ─────────────────────────────────────────────────── */
 body {
   font-family: 'Gowun Batang', 'Batang', 'Georgia', serif;
@@ -10,27 +19,27 @@ body {
     radial-gradient(ellipse 50% 35% at 85% 95%, rgba(180, 140, 50, 0.07) 0%, transparent 55%);
   color: #ede9e2;
   min-height: 100vh;
-  padding: 52px 24px 80px;
+  padding: clamp(28px, 5vw, 56px) clamp(14px, 4vw, 28px) 80px;
 }
 
 /* ── 전체 래퍼 ────────────────────────────────────────────── */
 .wrap {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: clamp(14px, 2.5vw, 22px);
 }
 
 /* ── 헤더 ─────────────────────────────────────────────────── */
 .header {
   text-align: center;
-  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
 }
 
 .header h1 {
   font-family: 'Black Han Sans', sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-size: clamp(1.55rem, 4.5vw, 2.5rem);
   font-weight: 400;
   letter-spacing: 0.06em;
   color: #ecc84a;
@@ -41,8 +50,8 @@ body {
 }
 
 .header-sub {
-  margin-top: 8px;
-  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: clamp(0.72rem, 1.5vw, 0.88rem);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #b8a660;
@@ -77,7 +86,7 @@ body {
 .input-bar {
   display: flex;
   align-items: center;
-  padding: 22px 32px;
+  padding: clamp(16px, 3vw, 26px) clamp(20px, 4vw, 36px);
   gap: 0;
 }
 
@@ -85,42 +94,48 @@ body {
 
 .bar-divider {
   width: 1px;
-  height: 40px;
+  height: 44px;
   background: rgba(200, 168, 60, 0.15);
-  margin: 0 28px;
+  margin: 0 clamp(16px, 3.5vw, 32px);
   flex-shrink: 0;
 }
 
-@media (max-width: 560px) {
-  .input-bar { flex-direction: column; align-items: stretch; gap: 16px; padding: 22px 24px; }
+/* 태블릿 이하 */
+@media (max-width: 600px) {
+  .input-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.1rem;
+    padding: 1.2rem 1.4rem;
+  }
   .bar-divider { display: none; }
 }
 
 /* ── 폼 요소 ──────────────────────────────────────────────── */
 .form-group label {
   display: block;
-  font-size: 0.7rem;
+  font-size: clamp(0.72rem, 1.3vw, 0.85rem);
   font-weight: 700;
   color: #ccb060;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 select {
   width: 100%;
-  padding: 11px 36px 11px 14px;
+  padding: 0.65rem 2.2rem 0.65rem 0.9rem;
   background: #07090f;
   border: 1px solid rgba(200, 168, 60, 0.22);
   color: #f0ece4;
   border-radius: 4px;
-  font-size: 0.92rem;
+  font-size: clamp(0.88rem, 1.6vw, 1.05rem);
   font-family: 'Gowun Batang', serif;
   appearance: none;
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23806a30' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 13px center;
+  background-position: right 0.8rem center;
   cursor: pointer;
   transition: border-color 0.18s, box-shadow 0.18s;
 }
@@ -135,7 +150,7 @@ select:focus {
 .result-panel {
   display: none;
   opacity: 0;
-  padding: 30px 32px 28px;
+  padding: clamp(20px, 3.5vw, 34px) clamp(20px, 4vw, 36px) clamp(18px, 3vw, 30px);
 }
 
 .result-panel.show {
@@ -150,19 +165,19 @@ select:focus {
 
 /* ── 결과 헤더 ────────────────────────────────────────────── */
 .result-header {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
+  margin-bottom: clamp(16px, 3vw, 26px);
+  padding-bottom: clamp(12px, 2vw, 18px);
   border-bottom: 1px solid rgba(200, 168, 60, 0.13);
 }
 
 .result-title {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .result-label-text {
-  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.82rem);
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -170,13 +185,13 @@ select:focus {
 }
 
 .result-badge {
-  font-size: 0.8rem;
+  font-size: clamp(0.82rem, 1.5vw, 0.98rem);
   font-weight: 600;
   color: #ecc84a;
   background: rgba(200, 168, 60, 0.1);
   border: 1px solid rgba(200, 168, 60, 0.28);
   border-radius: 3px;
-  padding: 3px 12px;
+  padding: 0.18rem 0.75rem;
   letter-spacing: 0.04em;
 }
 
@@ -184,9 +199,10 @@ select:focus {
 .equip-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: clamp(8px, 1.5vw, 12px);
 }
 
+/* 모바일: 2열 */
 @media (max-width: 480px) {
   .equip-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -195,12 +211,12 @@ select:focus {
   background: #0a0e1a;
   border: 1px solid rgba(200, 168, 60, 0.15);
   border-radius: 4px;
-  padding: 14px 12px 13px;
+  padding: clamp(12px, 2vw, 18px) clamp(10px, 1.5vw, 14px);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
 }
 
@@ -211,47 +227,47 @@ select:focus {
 }
 
 .slot-label {
-  font-size: 0.62rem;
+  font-size: clamp(0.66rem, 1.1vw, 0.78rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #c4a850;
   background: rgba(200, 168, 60, 0.07);
-  border: 1px solid rgba(200, 168, 60, 0.12);
+  border: 1px solid rgba(200, 168, 60, 0.15);
   border-radius: 2px;
-  padding: 2px 8px;
+  padding: 0.15rem 0.5rem;
   width: 100%;
 }
 
 .equip-content {
-  font-size: 0.83rem;
-  font-weight: 600;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 400;
   color: #f2eee6;
-  line-height: 1.55;
+  line-height: 1.6;
   word-break: keep-all;
 }
 
 /* 경고 문구 */
 .warn {
   display: inline-block;
-  margin-top: 5px;
-  font-size: 0.72rem;
-  font-weight: 800;
+  margin-top: 0.3rem;
+  font-size: clamp(0.75rem, 1.2vw, 0.88rem);
+  font-weight: 700;
   color: #e05040;
   letter-spacing: 0.01em;
 }
 
 /* ── 설명 ─────────────────────────────────────────────────── */
 .result-desc {
-  margin-top: 20px;
-  padding: 16px 20px;
+  margin-top: clamp(14px, 2.5vw, 22px);
+  padding: clamp(12px, 2.5vw, 18px) clamp(14px, 3vw, 22px);
   background: rgba(200, 168, 60, 0.04);
   border: 1px solid rgba(200, 168, 60, 0.12);
   border-left: 2px solid rgba(200, 168, 60, 0.55);
   border-radius: 0 4px 4px 0;
-  font-size: 0.88rem;
+  font-size: clamp(0.88rem, 1.6vw, 1.02rem);
   color: #cdc8c0;
-  line-height: 1.9;
+  line-height: 2;
 }
 
 .result-desc b {
@@ -263,34 +279,37 @@ select:focus {
 .legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 0;
-  margin-top: 18px;
-  padding-top: 16px;
+  gap: 0.25rem 0;
+  margin-top: clamp(14px, 2.5vw, 20px);
+  padding-top: clamp(12px, 2vw, 18px);
   border-top: 1px solid rgba(200, 168, 60, 0.08);
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.4rem;
   width: 50%;
-  padding: 3px 0;
-  font-size: 0.75rem;
+  padding: 0.25rem 0;
+  font-size: clamp(0.78rem, 1.3vw, 0.92rem);
 }
 
 @media (max-width: 500px) {
   .legend-item { width: 100%; }
 }
 
-.legend-emoji { font-size: 1rem; flex-shrink: 0; }
+.legend-emoji {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  flex-shrink: 0;
+}
 
 .legend-name {
   font-weight: 700;
   color: #c8a840;
-  min-width: 28px;
+  min-width: 2rem;
 }
 
 .legend-desc {
   color: #a89858;
-  font-size: 0.7rem;
+  font-size: clamp(0.72rem, 1.2vw, 0.84rem);
 }
