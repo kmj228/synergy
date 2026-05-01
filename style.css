@@ -44,7 +44,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #6a5e38;
+  color: #9a8a50;
 }
 
 /* ── 카드 공통 ────────────────────────────────────────────── */
@@ -100,7 +100,7 @@ body {
   display: block;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #7a6a3a;
+  color: #b09848;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -165,7 +165,7 @@ select:focus {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #7a6a3a;
+  color: #b09848;
 }
 
 .result-badge {
@@ -214,7 +214,7 @@ select:focus {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #5a5035;
+  color: #a89048;
   background: rgba(200, 168, 60, 0.07);
   border: 1px solid rgba(200, 168, 60, 0.12);
   border-radius: 2px;
@@ -290,6 +290,6 @@ select:focus {
 }
 
 .legend-desc {
-  color: #5a5235;
+  color: #8a7a48;
   font-size: 0.7rem;
 }
