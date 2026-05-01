@@ -38,9 +38,8 @@ body {
 }
 
 .header h1 {
-  font-family: 'Black Han Sans', sans-serif;
   font-size: clamp(1.55rem, 4.5vw, 2.5rem);
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.06em;
   color: #ecc84a;
   text-shadow:
