@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>낙원 장비 자동 추천기</title>
+</head>
+<body>
+<div class="container">
+    <h1>낙원 장비 시너지 추천기</h1>
+    
+    <div class="form-group">
+        <label for="dmgType">1. 딜러 타입이 무엇인가요?</label>
+        <select id="dmgType">
+            <option value="physical">물리 딜러</option>
+            <option value="magical">마법 딜러</option>
+            <option value="hybrid">하이브리드 (물리+마법)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="elementType">2. 속성이 어떻게 되나요?</label>
+        <select id="elementType">
+            <option value="none">무속성</option>
+            <option value="elemental">속성</option>
+            <option value="dark">암속성</option>
+        </select>
+    </div>
+
+    <button onclick="calculate()">추천 세팅 보기</button>
+
+    <div id="resultBox" class="result-box">
+        <h2 id="resultTitle" class="highlight">추천 세팅</h2>
+        <div class="grid-container" id="equipGrid">
+            </div>
+        <div id="resultDesc" class="desc"></div>
+    </div>
+</div>
+</body>
+</html>
