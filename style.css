@@ -3,12 +3,12 @@
 
 /* ── 기본 ─────────────────────────────────────────────────── */
 body {
-  font-family: 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  font-family: 'Gowun Batang', 'Batang', 'Georgia', serif;
   background: #07090f;
   background-image:
     radial-gradient(ellipse 140% 45% at 50% 0%, rgba(20, 45, 110, 0.4) 0%, transparent 55%),
     radial-gradient(ellipse 50% 35% at 85% 95%, rgba(180, 140, 50, 0.07) 0%, transparent 55%);
-  color: #e2ddd5;
+  color: #ede9e2;
   min-height: 100vh;
   padding: 52px 24px 80px;
 }
@@ -29,9 +29,10 @@ body {
 }
 
 .header h1 {
+  font-family: 'Black Han Sans', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.1rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   color: #ecc84a;
   text-shadow:
     0 0 36px rgba(236, 200, 74, 0.45),
@@ -44,7 +45,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #9a8a50;
+  color: #b8a660;
 }
 
 /* ── 카드 공통 ────────────────────────────────────────────── */
@@ -100,7 +101,7 @@ body {
   display: block;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #b09848;
+  color: #ccb060;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -111,10 +112,10 @@ select {
   padding: 11px 36px 11px 14px;
   background: #07090f;
   border: 1px solid rgba(200, 168, 60, 0.22);
-  color: #e8e4da;
+  color: #f0ece4;
   border-radius: 4px;
   font-size: 0.92rem;
-  font-family: inherit;
+  font-family: 'Gowun Batang', serif;
   appearance: none;
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23806a30' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -165,7 +166,7 @@ select:focus {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #b09848;
+  color: #ccb060;
 }
 
 .result-badge {
@@ -214,7 +215,7 @@ select:focus {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #a89048;
+  color: #c4a850;
   background: rgba(200, 168, 60, 0.07);
   border: 1px solid rgba(200, 168, 60, 0.12);
   border-radius: 2px;
@@ -225,7 +226,7 @@ select:focus {
 .equip-content {
   font-size: 0.83rem;
   font-weight: 600;
-  color: #ece8e0;
+  color: #f2eee6;
   line-height: 1.55;
   word-break: keep-all;
 }
@@ -249,7 +250,7 @@ select:focus {
   border-left: 2px solid rgba(200, 168, 60, 0.55);
   border-radius: 0 4px 4px 0;
   font-size: 0.88rem;
-  color: #b8b2a8;
+  color: #cdc8c0;
   line-height: 1.9;
 }
 
@@ -290,6 +291,6 @@ select:focus {
 }
 
 .legend-desc {
-  color: #8a7a48;
+  color: #a89858;
   font-size: 0.7rem;
 }
